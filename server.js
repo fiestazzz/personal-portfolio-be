@@ -2,6 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const todoController = require('./controllers/todosController');
+const expenceController = require('./controllers/expencesController');
+
 var cors = require('cors')
 
 
@@ -20,6 +22,7 @@ const MONGO_URL = process.env.MONGO_URL
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use('/api/todos', todoController);
+app.use('/api/expences', expenceController);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
