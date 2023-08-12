@@ -3,9 +3,21 @@ const asyncHandler = require('express-async-handler')
 
 // get all product
 const getExpences = asyncHandler(async(req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 10;
     try {
-        const expences = await Expence.find({});
-        res.status(200).json(expences);
+        const totalCount = await Expence.countDocuments();
+        const totalPages = Math.ceil(totalCount / pageSize);
+
+        const expences = await Expence.find().skip((page - 1) * pageSize)
+        .limit(pageSize);
+        res.status(200).json({
+            totalCount:totalCount,
+            currentPage: page,
+            pageSize: pageSize,
+            totalPages: totalPages,
+            expences: expences,
+          });
     } catch (error) {
         res.status(500);
         throw new Error(error.message);
