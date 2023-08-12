@@ -16,7 +16,7 @@ const getExpences = asyncHandler(async(req, res) => {
             currentPage: page,
             pageSize: pageSize,
             totalPages: totalPages,
-            expences: expences,
+            data: expences,
           });
     } catch (error) {
         res.status(500);

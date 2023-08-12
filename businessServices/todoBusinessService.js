@@ -15,7 +15,7 @@ const getTodos = asyncHandler(async(req, res) => {
             currentPage: page,
             pageSize: pageSize,
             totalPages: totalPages,
-            todos: todos,
+            data: todos,
           });
     } catch (error) {
         res.status(500);
