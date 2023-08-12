@@ -21,10 +21,4 @@ router.put('/:id', updateExpence);
 router.delete('/:id', deleteExpence);
 
 
-
-
-
-
-
-
 module.exports = router;
