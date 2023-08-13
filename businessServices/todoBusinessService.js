@@ -53,12 +53,12 @@ const updateTodo = asyncHandler(async(req, res) => {
         const {id} = req.params;
         const todo = await Todo.findByIdAndUpdate(id, req.body);
         // we cannot find any product in database
-        if(!product){
+        if(!todo){
             res.status(404);
             throw new Error(`cannot find any product with ID ${id}`);
         }
         const updatedTodo = await Todo.findById(id);
-        res.status(200).json(updateTodo);
+        res.status(200).json(updatedTodo);
         
     } catch (error) {
         res.status(500);
