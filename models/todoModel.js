@@ -6,7 +6,7 @@ const todoSchema = mongoose.Schema(
             type: String,
             required: [true, "Please enter a todo description"]
         },
-        isExpired: {
+        isDone: {
             type: Boolean,
             default:false
         }
