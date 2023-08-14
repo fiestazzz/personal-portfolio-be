@@ -8,7 +8,7 @@ const getTodos = asyncHandler(async(req, res) => {
     try {
         const totalCount = await Todo.countDocuments();
         const totalPages = Math.ceil(totalCount / pageSize);
-        const todos = await Todo.find().skip((page - 1) * pageSize)
+        const todos = await Todo.find().sort({isDone: 1, createdAt:-1}).skip((page - 1) * pageSize)
         .limit(pageSize);
         res.status(200).json({
             totalCount:totalCount,
