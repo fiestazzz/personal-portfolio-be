@@ -10,6 +10,14 @@ const mailSchema = mongoose.Schema(
             type: String,
             required: true
         },
+        name:{
+            type: String,
+            required: true
+        },
+        surname:{
+            type: String,
+            required: true
+        },
        subject :{
             type: String,
             required:true
