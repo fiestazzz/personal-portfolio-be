@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const todoController = require('./controllers/todosController');
 const expenceController = require('./controllers/expencesController');
+const mailController = require('./controllers/mailerController');
 
 var cors = require('cors')
 
@@ -24,6 +25,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use('/api/todos', todoController);
 app.use('/api/expences', expenceController);
+app.use('/api/mail', mailController);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
